@@ -1,0 +1,18 @@
+<view class="container">
+	<view class="line">
+    <view class="textLine {{index==0?'active':''}}"  tt:for="{{hero_type}}" >
+      <view>{{item.label}}</view>
+    </view>
+  </view>
+	<view class="flex-wrap">
+		<block tt:for="{{heroes}}" tt:key="{{item.id}}">
+			<view class="flex-item">
+				<image class="hero-img" src="../../images/hero/{{item.id}}.jpg"  mode="aspectFit"/>
+				{{item.name}}
+			</view>
+		</block>
+    <block tt:for="{{10-(heroes.length%10)}}" tt:if="{{(heroes.length%10)>0}}">
+      <i class="hero-empty"></i>
+    </block>
+	</view>
+</view>
